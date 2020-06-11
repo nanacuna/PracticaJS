@@ -10,5 +10,4 @@ misAmigos.amigos.push('sabri');
 
 misAmigos.amigos.push('oli');
 
-
 console.log(misAmigos);

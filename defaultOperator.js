@@ -1,10 +1,12 @@
 //Funciones constructoras y prototipos
-
 function Person (name, lastName){
     this.name = name || 'Nancy';
     this.lastName = lastName || 'Acuña';
 }
 
+Person.prototype.getName = function (){
+    return `My name is ${this.name}`;
+}
 
 let gonza = new Person();
 console.log(gonza);
@@ -19,13 +21,18 @@ let agus = new Person ('Agus');
 console.log(agus);
 
 
-function NuevaPersona(nombre, apellido, edad){
+function Empleados(nombre, apellido, empleo, sueldo){
     Person.call(this, nombre, apellido);
-    this.edad = edad;
+    this.empleo = empleo;
+    this.sueldo = sueldo;
 };
 
 //////////////////////////////////////////////////////////
-NuevaPersona.prototype = Object.create(Person.prototype);
-NuevaPersona.prototype.constructor = NuevaPersona;
-console.log(NuevaPersona);
-console.log(NuevaPersona.__proto__);
+Empleados.prototype = Object.create(Person.prototype);
+Empleados.prototype.constructor = Empleados;
+// console.log(Empleados);
+console.log(Empleados.__proto__);
+
+let empleado1 = new Empleados('Nancy Acuña');
+
+console.log(empleado1.getName());

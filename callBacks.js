@@ -1,46 +1,35 @@
 let array = [1,2,3,4,5];
-let sum;
+let newArray = [];
 
+function cb (num){
+    newArray.push(num);
+};
+
+console.log(`New array vacío: ${newArray}`);
 
 function sumarArray (array, cb){
-    // let guardar = (array, function(){
-        if(typeof array === 'object'){
-            // for (let i = 0; i < array.length; i++) {
-            //     cb += array[i];
-            // }
-            array.forEach(function(element) {
-                cb(element);
-            });
-        }
-    // });
-
-    // array.forEach(function(element) {
-    //     cb.push(element);
-    // });
-
-    console.log(array);
-    console.log(cb);
-    // console.log(guardar());
-    // let sumar = function(sum, guardar){
-
-    // }
+    if(typeof array === 'object'){
+        array.forEach((element) => cb(element));
+    }
 }
 
-sumarArray(array, sum);
+sumarArray(array, cb);
 
+console.log(`New Array mapeado: ${newArray}`);
 
+//=======================================\\
 
 function decirHolaAlUsuario(usuario) {
-    return 'Hola ' + usuario + '!';
+    return `Hello ${usuario}!`;
 }
 
 function decirAdiosAlUsuario(usuario) {
-    return 'Adiós ' + usuario + '!';
+    return `Goodbye ${usuario}!`;
 }
 
 function crearSaludo(usuario, cb) {
     return cb(usuario);
 }
 
-crearSaludo('Dan', decirHolaAlUsuario); // 'Hello Dan!'
-crearSaludo('Dan', decirAdiosAlUsuario); // 'Goodbye Dan!'
+console.log(crearSaludo('Nan', decirHolaAlUsuario)); // 'Hello Nan!'
+console.log(crearSaludo('Nan', decirAdiosAlUsuario)); // 'Goodbye Nan!'
